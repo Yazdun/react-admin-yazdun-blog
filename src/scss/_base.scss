@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background--1);
+  color: var(--foreground--1);
+  font-family: 'Poppins', sans-serif;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+}
+
+button:disabled,
+button:disabled:hover,
+button[disabled]:hover {
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+a {
+  all: unset;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:visited {
+    color: inherit;
+  }
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
