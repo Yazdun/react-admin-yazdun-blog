@@ -1,0 +1,38 @@
+@import '../../scss/mixins', '../../scss/animations';
+
+.btn {
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: var(--border--radius--1);
+  color: white;
+  text-transform: uppercase;
+  transition: 0.3s;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr--neutral--1);
+
+  svg {
+    margin-right: 0.6rem;
+    font-size: 1.5rem;
+  }
+
+  @include focus-visible;
+}
+
+.active {
+  background-color: var(--clr--active--1);
+}
+
+.danger {
+  background-color: var(--clr--danger--1);
+}
+
+.success {
+  background-color: var(--clr--success--1);
+}
+
+.loading {
+  animation: 1s loading infinite linear;
+}

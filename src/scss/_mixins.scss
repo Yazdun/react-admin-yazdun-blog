@@ -69,7 +69,6 @@
 // Focus Visible
 @mixin focus-visible() {
   &:focus-visible {
-    box-shadow: 0px 0px 0px 2px var(--foreground--1);
-    // outline: 3px solid var(--foreground--1);
+    box-shadow: 0px 0px 0px 3px var(--foreground--1);
   }
 }

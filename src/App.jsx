@@ -1,9 +1,20 @@
+import { Container, Button } from './elements'
+import { MdOutlineDrafts } from 'react-icons/md'
+
 function App() {
   return (
-    <div>
-      <h1>app</h1>
-    </div>
-  );
+    <Container>
+      <Button active>
+        <MdOutlineDrafts />
+        do some action
+      </Button>
+      <Button danger>do some action</Button>
+
+      <Button success>do some action</Button>
+
+      <Button>do some action</Button>
+    </Container>
+  )
 }
 
-export default App;
+export default App
