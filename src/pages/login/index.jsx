@@ -10,7 +10,7 @@ export const Login = () => {
   return (
     <Container styles={s.container}>
       <FormProvider {...methods}>
-        <form>
+        <form onSubmit={methods.handleSubmit(data => console.log(data))}>
           <Input {...UsernameInput} />
           <Input {...PasswordInput} />
           <Button active center>

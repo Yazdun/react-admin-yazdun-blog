@@ -2,6 +2,7 @@ import s from './styles.module.scss'
 import { useFormContext } from 'react-hook-form'
 import { filterError, isError } from './helpers'
 import cn from 'classnames'
+import { Error } from '../'
 
 export const Input = ({
   type,
@@ -21,7 +22,7 @@ export const Input = ({
   const isErr = isError(e)
 
   return (
-    <div className={s.wrapper}>
+    <div className={cn(s.wrapper, isErr && s.error)}>
       <label className={s.label} htmlFor={id}>
         {label}
       </label>
@@ -33,6 +34,7 @@ export const Input = ({
         placeholder={placeholder}
         {...register(`${name}`, validation)}
       />
+      {isErr && <Error message={e.error?.message} />}
     </div>
   )
 }

@@ -27,3 +27,15 @@
   text-transform: capitalize;
   font-weight: 600;
 }
+
+.error {
+  .input {
+    border: 1px solid var(--clr--danger--1);
+    &:focus {
+      box-shadow: 0px 0px 0px 1px var(--clr--danger--1);
+    }
+  }
+  .label {
+    color: var(--clr--danger--1);
+  }
+}
