@@ -10,6 +10,7 @@ export const Button = ({
   disable,
   loading,
   styles,
+  fullwidth,
   onClick,
 }) => {
   return (
@@ -20,6 +21,7 @@ export const Button = ({
         active && s.active,
         danger && s.danger,
         success && s.success,
+        fullwidth && s.fullwidth,
         styles,
       )}
       onClick={onClick && onClick}

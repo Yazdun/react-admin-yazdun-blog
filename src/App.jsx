@@ -8,11 +8,6 @@ function App() {
         <MdOutlineDrafts />
         do some action
       </Button>
-      <Button danger>do some action</Button>
-
-      <Button success>do some action</Button>
-
-      <Button>do some action</Button>
     </Container>
   )
 }
