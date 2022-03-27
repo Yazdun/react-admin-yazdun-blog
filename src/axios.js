@@ -1,5 +1,5 @@
 import axios from 'axios'
-axios.defaults.baseURL = 'https://nodejs-novels.herokuapp.com/api/v1'
+axios.defaults.baseURL = 'http://localhost:5000/api/v1'
 
 axios.interceptors.request.use(function (req) {
   const token = localStorage.getItem('token')

@@ -1,6 +1,6 @@
 import s from './styles.module.scss'
 import { useFormContext } from 'react-hook-form'
-import { filterError, isError } from './helpers'
+import { filterError, isError } from '../../utils'
 import cn from 'classnames'
 import { Error } from '../'
 
