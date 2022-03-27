@@ -1,11 +1,10 @@
-import { Container, Button } from './elements'
-import { MdOutlineDrafts } from 'react-icons/md'
+import { HttpErrors } from './context'
 import { Route, Switch } from 'react-router-dom'
 import { AppRoutes, PrivateRoute } from './pages'
 
 function App() {
   return (
-    <>
+    <HttpErrors>
       <Switch>
         {AppRoutes.map((route, item) =>
           route.private ? (
@@ -15,7 +14,7 @@ function App() {
           ),
         )}
       </Switch>
-    </>
+    </HttpErrors>
   )
 }
 

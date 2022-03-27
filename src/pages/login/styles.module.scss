@@ -1,6 +1,4 @@
 .container {
-  max-width: 25rem;
-  //   background-color: red;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -9,4 +7,5 @@
 
 .container form {
   width: 100%;
+  max-width: 25rem;
 }
