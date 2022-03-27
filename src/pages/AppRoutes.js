@@ -1,4 +1,4 @@
-import { Page404, Create, Dashboard, Draft, Login, Messages } from './'
+import { Page404, Create, Dashboard, Draft, Drafts, Login, Messages } from './'
 
 export const AppRoutes = [
   {
@@ -22,6 +22,12 @@ export const AppRoutes = [
     exact: true,
     path: '/draft/:id',
     component: Draft,
+    private: true,
+  },
+  {
+    exact: true,
+    path: '/drafts',
+    component: Drafts,
     private: true,
   },
   {

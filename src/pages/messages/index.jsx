@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import s from './styles.module.scss'
+import { Container } from '../../elements'
 
 export const Messages = () => {
-  return <div>Messages</div>
+  return <Container>Messages</Container>
 }

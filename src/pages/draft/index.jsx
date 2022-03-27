@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import s from './styles.module.scss'
+import { Container } from '../../elements'
 
 export const Draft = () => {
-  return <div>Draft</div>
+  return <Container>Draft</Container>
 }

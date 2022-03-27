@@ -1,0 +1,41 @@
+@import '../../scss/mixins';
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.5rem;
+
+  a {
+    display: flex;
+  }
+
+  @include breakpoint-up(tablet) {
+    max-width: 15rem;
+
+    .logout {
+      position: absolute;
+      right: 1rem;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.nav {
+  box-shadow: var(--shadow--1);
+}
+
+.out {
+  display: flex;
+  font-size: 1.5rem;
+  color: var(--clr--danger--1);
+}
+
+.hide {
+  display: none;
+}
