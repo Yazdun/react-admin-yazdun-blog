@@ -1,5 +1,6 @@
 export { Container } from './container'
 export { Button } from './button'
 export { Input } from './formfields/Input'
+export { Textarea } from './formfields/Textarea'
 export { Error } from './error'
 export { ServerErrors } from './serverErrors'

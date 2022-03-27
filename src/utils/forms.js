@@ -35,7 +35,7 @@ export const TitleInput = {
   validation: {
     required: {
       value: true,
-      message: 'title is required !',
+      message: 'title is required',
     },
     minLength: {
       value: 2,
@@ -57,7 +57,7 @@ export const descriptionInput = {
   validation: {
     required: {
       value: true,
-      message: 'description is required !',
+      message: 'description is required',
     },
     minLength: {
       value: 2,
@@ -75,7 +75,7 @@ export const ContentInput = {
   validation: {
     required: {
       value: true,
-      message: 'content is required !',
+      message: 'content is required',
     },
     minLength: {
       value: 10,

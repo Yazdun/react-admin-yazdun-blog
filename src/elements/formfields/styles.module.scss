@@ -39,3 +39,9 @@
     color: var(--clr--danger--1);
   }
 }
+
+.textarea {
+  resize: vertical;
+  min-height: 10rem;
+  font-family: 'Poppins', serif;
+}

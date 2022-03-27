@@ -4,15 +4,7 @@ import { filterError, isError } from '../../utils'
 import cn from 'classnames'
 import { Error } from '../'
 
-export const Input = ({
-  type,
-  id,
-  name,
-  placeholder,
-  validation,
-  label,
-  styles,
-}) => {
+export const Input = ({ type, id, name, placeholder, validation, label }) => {
   const {
     register,
     formState: { errors },
