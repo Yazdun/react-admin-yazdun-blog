@@ -11,6 +11,7 @@ export const Button = ({
   loading,
   styles,
   fullwidth,
+  center,
   onClick,
 }) => {
   return (
@@ -22,6 +23,7 @@ export const Button = ({
         danger && s.danger,
         success && s.success,
         fullwidth && s.fullwidth,
+        center && s.center,
         styles,
       )}
       onClick={onClick && onClick}
