@@ -34,6 +34,9 @@
   display: flex;
   font-size: 1.5rem;
   color: var(--clr--danger--1);
+  transition: 0.3s;
+  border-radius: var(--border--radius--1);
+  @include focus-visible;
 }
 
 .hide {
