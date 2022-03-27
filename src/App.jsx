@@ -1,14 +1,21 @@
 import { Container, Button } from './elements'
 import { MdOutlineDrafts } from 'react-icons/md'
+import { Route, Switch } from 'react-router-dom'
+import { AppRoutes, PrivateRoute } from './pages'
 
 function App() {
   return (
-    <Container>
-      <Button active>
-        <MdOutlineDrafts />
-        do some action
-      </Button>
-    </Container>
+    <>
+      <Switch>
+        {AppRoutes.map((route, item) =>
+          route.private ? (
+            <PrivateRoute key={item} {...route} />
+          ) : (
+            <Route key={item} {...route} />
+          ),
+        )}
+      </Switch>
+    </>
   )
 }
 
