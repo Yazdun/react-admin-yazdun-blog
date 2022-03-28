@@ -1,4 +1,5 @@
 export { Navigation } from './navigation'
+export { Alert } from './alert'
 export { Preview } from './preview'
 export { Markdown } from './markdown'
 export { Post } from './post'

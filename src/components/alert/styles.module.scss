@@ -1,0 +1,67 @@
+.alert {
+  color: black;
+  padding: 1rem;
+  border-radius: var(--border--radius--1);
+  background-color: var(--clr--warn--1);
+  position: fixed;
+  max-width: 25rem;
+  position: fixed;
+  bottom: 4.375rem;
+  left: 1rem;
+  right: 1rem;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  animation: 1s ease-out 0s 1 bell;
+  animation-iteration-count: infinite;
+  animation-delay: 0.3s;
+}
+
+.btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.show {
+  transition: 0.5s ease-in-out;
+  opacity: 1;
+}
+
+.hide {
+  transition: 0.5s ease-in-out;
+  bottom: -100%;
+}
+
+@keyframes bell {
+  0% {
+    transform: rotate(0);
+  }
+  20% {
+    transform: rotate(-30deg);
+  }
+  40% {
+    transform: rotate(25deg);
+  }
+  60% {
+    transform: rotate(-20deg);
+  }
+  80% {
+    transform: rotate(15deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}

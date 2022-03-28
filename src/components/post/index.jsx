@@ -16,12 +16,14 @@ import { Preview } from '../'
 import { useState } from 'react'
 import { CREATE_POST } from '../../services'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { useAppContext } from '../../context'
 
 export const Post = () => {
   const methods = useForm()
   const [markdown, setMarkdown] = useState()
   const { xPost, xPatch, loading, serverErrors } = useFetch()
   const history = useHistory()
+  const { setAlertText, setShowAlert } = useAppContext()
   const handlePost = () => history.push('/dashboard')
 
   return (
@@ -61,7 +63,10 @@ export const Post = () => {
             publish
           </Button>
           <Button
-            onClick={() => console.log(markdown)}
+            onClick={() => {
+              setShowAlert(true)
+              setAlertText('alert is true')
+            }}
             disable={loading || isError(methods.formState.errors)}
             loading={loading}
           >
