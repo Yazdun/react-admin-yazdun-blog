@@ -46,7 +46,7 @@ export const Post = () => {
           </div>
         </div>
 
-        <ServerErrors errors={serverErrors} />
+        {serverErrors && <ServerErrors errors={serverErrors} />}
 
         <div className={s.buttons}>
           <Button

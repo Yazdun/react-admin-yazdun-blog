@@ -1,3 +1,5 @@
+@import '../../scss/main.scss';
+
 .btn {
   position: absolute;
   top: 0;
@@ -11,6 +13,10 @@
   text-transform: capitalize;
   svg {
     margin-right: 0.5rem;
+  }
+
+  &:focus-visible {
+    box-shadow: 0px 0px 0px 3px var(--clr--active--1);
   }
 }
 
@@ -38,4 +44,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: var(--border--radius--1);
+  transition: 0.3s;
+  @include focus-visible;
 }
