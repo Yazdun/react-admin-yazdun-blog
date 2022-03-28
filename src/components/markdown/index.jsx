@@ -4,6 +4,14 @@ import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import s from './styles.module.scss'
 
 export const Markdown = ({ markdown }) => {
+  if (!markdown) {
+    return (
+      <div className={s.container}>
+        <p>Write some markdown and see the magic happens !</p>
+      </div>
+    )
+  }
+
   return (
     <div className={s.container}>
       <ReactMarkdown
