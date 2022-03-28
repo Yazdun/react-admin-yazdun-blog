@@ -13,27 +13,66 @@ import {
 } from '../../utils'
 import { BiRocket, BiCloud } from 'react-icons/bi'
 import { Preview } from '..'
-import { useState } from 'react'
-import { CREATE_POST } from '../../services'
+import { useEffect, useState } from 'react'
+import { CREATE_POST, PATCH_POST } from '../../services'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import { useAppContext } from '../../context'
 
-export const PostForm = () => {
+export const PostForm = ({ updateMode, formData, postId }) => {
   const methods = useForm()
   const [markdown, setMarkdown] = useState()
+  const [fields, setFields] = useState(formData || {})
   const { xPost, xPatch, loading, serverErrors } = useFetch()
   const history = useHistory()
   const { setAlertText, setShowAlert } = useAppContext()
 
-  const handlePost = () => {
-    history.push('/dashboard')
+  const handlePost = data => {
+    history.push(data.isDraft ? '/drafts' : '/dashboard')
     setShowAlert(true)
-    setAlertText('post has been submitted')
+    setAlertText(
+      updateMode ? 'post has been updated' : 'post has been submitted',
+    )
   }
+
+  useEffect(() => {
+    if (updateMode) {
+      const {
+        title,
+        description,
+        keywords,
+        image,
+        twitter,
+        codesandbox,
+        codepen,
+        youtube,
+        content,
+      } = fields
+
+      setMarkdown(content)
+
+      const inputs = [
+        { name: 'title', value: title },
+        { name: 'description', value: description },
+        { name: 'keywords', value: keywords },
+        { name: 'image', value: image },
+        { name: 'twitter', value: twitter },
+        { name: 'codesandbox', value: codesandbox },
+        { name: 'codepen', value: codepen },
+        { name: 'youtube', value: youtube },
+        { name: 'content', value: content },
+      ]
+
+      inputs.map(input => {
+        const { name, value } = input
+        return methods.setValue(name, value)
+      })
+    }
+  }, [])
 
   return (
     <FormProvider {...methods}>
       <form onSubmit={e => e.preventDefault()}>
+        <h1>Create an article</h1>
         <div className={s.fields}>
           <Input {...TitleInput} />
           <Input {...descriptionInput} />
@@ -59,7 +98,9 @@ export const PostForm = () => {
           <Button
             active
             onClick={methods.handleSubmit(data =>
-              xPost(CREATE_POST, data, handlePost),
+              updateMode
+                ? xPatch(PATCH_POST(postId), data, handlePost)
+                : xPost(CREATE_POST, data, handlePost),
             )}
             disable={loading || isError(methods.formState.errors)}
             loading={loading}
@@ -69,7 +110,13 @@ export const PostForm = () => {
           </Button>
           <Button
             onClick={methods.handleSubmit(data =>
-              xPost(CREATE_POST, { ...data, isDraft: true }, handlePost),
+              updateMode
+                ? xPatch(
+                    PATCH_POST(postId),
+                    { ...data, isDraft: true },
+                    handlePost,
+                  )
+                : xPost(CREATE_POST, { ...data, isDraft: true }, handlePost),
             )}
             disable={loading || isError(methods.formState.errors)}
             loading={loading}

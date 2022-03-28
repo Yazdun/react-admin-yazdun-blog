@@ -1,6 +1,4 @@
-import cn from 'classnames'
-import s from './styles.module.scss'
-import { Container } from '../../elements'
+import { Container, Loading } from '../../elements'
 import { useEffect, useState } from 'react'
 import { useFetch } from '../../hooks'
 import { GET_ALL_POSTS } from '../../services'
@@ -15,6 +13,10 @@ export const Dashboard = () => {
   useEffect(() => {
     xGet(GET_ALL_POSTS(false), handleData)
   }, [])
+
+  if (loading) {
+    return <Loading center />
+  }
 
   return (
     <Container>
