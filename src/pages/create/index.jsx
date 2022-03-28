@@ -12,14 +12,17 @@ import {
   UrlInput,
 } from '../../utils'
 import { BiRocket, BiCloud } from 'react-icons/bi'
+import { Preview } from '../../components'
+import { useState } from 'react'
 
 export const Create = () => {
   const methods = useForm()
+  const [markdown, setMarkdown] = useState()
 
   return (
     <Container>
       <FormProvider {...methods}>
-        <form onSubmit={methods.handleSubmit(data => console.log(data))}>
+        <form onSubmit={e => e.preventDefault()}>
           <div className={s.fields}>
             <Input {...TitleInput} />
             <Input {...descriptionInput} />
@@ -29,15 +32,24 @@ export const Create = () => {
             <Input {...UrlInput('codesandbox')} />
             <Input {...UrlInput('codepen')} />
             <Input {...UrlInput('youtube')} />
-            <Textarea {...ContentInput} styles={s.textarea} />
+            <div className={s.textarea}>
+              <Textarea
+                {...ContentInput}
+                onChange={markdown => setMarkdown(markdown)}
+              />
+              <Preview markdown={markdown} />
+            </div>
           </div>
 
           <div className={s.buttons}>
-            <Button active>
+            <Button
+              active
+              onClick={methods.handleSubmit(data => console.log(data))}
+            >
               <BiRocket />
               publish
             </Button>
-            <Button>
+            <Button onClick={() => console.log(markdown)}>
               <BiCloud />
               draft
             </Button>
