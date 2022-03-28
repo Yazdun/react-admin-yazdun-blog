@@ -33,8 +33,10 @@ export const Textarea = ({
         name={name}
         className={cn(s.input, s.textarea)}
         placeholder={placeholder}
-        {...register(`${name}`, validation)}
-        onChange={e => onChange(e.target.value)}
+        {...register(`${name}`, {
+          ...validation,
+          onChange: e => onChange && onChange(e.target.value),
+        })}
       ></textarea>
       {isErr && <Error message={e.error?.message} />}
     </div>
