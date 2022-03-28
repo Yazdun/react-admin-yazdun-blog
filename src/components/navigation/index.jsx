@@ -6,6 +6,7 @@ import { AiOutlineLogout } from 'react-icons/ai'
 import s from './styles.module.scss'
 import { useAuthActions, useAuthContext } from '../../context'
 import cn from 'classnames'
+import { FiCloud } from 'react-icons/fi'
 
 export const Navigation = () => {
   const { logOut } = useAuthActions()
@@ -25,6 +26,11 @@ export const Navigation = () => {
               </li>
             )
           })}
+          <li>
+            <Link title="drafts" to="/drafts">
+              <FiCloud />
+            </Link>
+          </li>
           <li>
             <Link title="messages" to="/messages">
               <BiMessageSquareDetail />

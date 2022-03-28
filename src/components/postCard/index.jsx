@@ -3,6 +3,7 @@ import ReactTimeAgo from 'react-time-ago'
 import { Link } from 'react-router-dom'
 import { BsCalendarEvent } from 'react-icons/bs'
 import { BiBadgeCheck } from 'react-icons/bi'
+import { FiUploadCloud } from 'react-icons/fi'
 
 export const PostCard = ({ post }) => {
   const { image, _id, title, description, createdAt: date, isDraft } = post
@@ -17,7 +18,10 @@ export const PostCard = ({ post }) => {
         <div className={s.sub}>
           <p className={s.subtitle}>
             {isDraft ? (
-              'drafted'
+              <>
+                <FiUploadCloud />
+                drafted
+              </>
             ) : (
               <>
                 <BiBadgeCheck />

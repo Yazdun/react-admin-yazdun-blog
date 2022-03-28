@@ -27,7 +27,7 @@ export const PostForm = ({ updateMode, formData, postId }) => {
   const { setAlertText, setShowAlert } = useAppContext()
 
   const handlePost = data => {
-    history.push(data.isDraft ? '/drafts' : '/dashboard')
+    history.push(data.post.isDraft ? '/drafts' : '/dashboard')
     setShowAlert(true)
     setAlertText(
       updateMode ? 'post has been updated' : 'post has been submitted',
@@ -72,7 +72,7 @@ export const PostForm = ({ updateMode, formData, postId }) => {
   return (
     <FormProvider {...methods}>
       <form onSubmit={e => e.preventDefault()}>
-        <h1>Create an article</h1>
+        <h1>{updateMode ? 'Update an article' : 'Create an article'}</h1>
         <div className={s.fields}>
           <Input {...TitleInput} />
           <Input {...descriptionInput} />
@@ -99,7 +99,11 @@ export const PostForm = ({ updateMode, formData, postId }) => {
             active
             onClick={methods.handleSubmit(data =>
               updateMode
-                ? xPatch(PATCH_POST(postId), data, handlePost)
+                ? xPatch(
+                    PATCH_POST(postId),
+                    { ...data, isDraft: false },
+                    handlePost,
+                  )
                 : xPost(CREATE_POST, data, handlePost),
             )}
             disable={loading || isError(methods.formState.errors)}
