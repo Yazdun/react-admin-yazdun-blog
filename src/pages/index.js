@@ -1,7 +1,7 @@
 export { Page404 } from './404'
 export { Create } from './create'
 export { Dashboard } from './dashboard'
-export { Draft } from './draft'
+export { Edit } from './edit'
 export { Login } from './login'
 export { Messages } from './messages'
 export { Http } from './http'

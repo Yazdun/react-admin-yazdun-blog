@@ -47,10 +47,6 @@ a {
     cursor: pointer;
   }
 
-  &:visited {
-    color: inherit;
-  }
-
   @include focus-visible;
 }
 
