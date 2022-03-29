@@ -4,13 +4,14 @@ import { links } from './links'
 import { BiMessageSquareDetail } from 'react-icons/bi'
 import { AiOutlineLogout } from 'react-icons/ai'
 import s from './styles.module.scss'
-import { useAuthActions, useAuthContext } from '../../context'
+import { useAppContext, useAuthActions, useAuthContext } from '../../context'
 import cn from 'classnames'
 import { FiCloud } from 'react-icons/fi'
 
 export const Navigation = () => {
   const { logOut } = useAuthActions()
   const isLoggedIn = useAuthContext()
+  const { draftsCount, messagesCount } = useAppContext()
 
   return (
     <nav className={cn(s.nav, !isLoggedIn && s.hide)}>
@@ -29,11 +30,17 @@ export const Navigation = () => {
           <li>
             <Link title="drafts" to="/drafts">
               <FiCloud />
+              <span className={cn(s.count, draftsCount === 0 && s.hide)}>
+                {draftsCount}
+              </span>
             </Link>
           </li>
           <li>
             <Link title="messages" to="/messages">
               <BiMessageSquareDetail />
+              <span className={cn(s.count, messagesCount === 0 && s.hide)}>
+                {messagesCount}
+              </span>
             </Link>
           </li>
           <li className={s.logout}>

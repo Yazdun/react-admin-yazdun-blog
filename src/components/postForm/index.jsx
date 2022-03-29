@@ -22,12 +22,20 @@ export const PostForm = ({ updateMode, formData, postId }) => {
   const methods = useForm()
   const [markdown, setMarkdown] = useState()
   const [fields, setFields] = useState(formData || {})
+  const { increaseDrafts, decreaseDrafts } = useAppContext()
   const { xPost, xPatch, loading, serverErrors } = useFetch()
   const history = useHistory()
   const { setAlertText, setShowAlert } = useAppContext()
 
   const handlePost = data => {
-    history.push(data.post.isDraft ? '/drafts' : '/dashboard')
+    const isDraft = data.post.isDraft
+    history.push(isDraft ? '/drafts' : '/dashboard')
+
+    if (formData) {
+      isDraft && !formData.isDraft && increaseDrafts()
+      !isDraft && formData.isDraft && decreaseDrafts()
+    }
+
     setShowAlert(true)
     setAlertText(
       updateMode ? 'post has been updated' : 'post has been submitted',

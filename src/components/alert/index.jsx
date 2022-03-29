@@ -25,7 +25,11 @@ export const Alert = () => {
 
   return (
     <div className={cn(s.alert, showAlert ? s.show : s.hide)} ref={ref}>
-      <button className={s.btn} onClick={() => setShowAlert(false)}>
+      <button
+        disabled={!showAlert}
+        className={s.btn}
+        onClick={() => setShowAlert(false)}
+      >
         <CgClose />
       </button>
       <FaBell className={s.icon} />

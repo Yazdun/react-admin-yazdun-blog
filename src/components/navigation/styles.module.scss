@@ -8,6 +8,7 @@
 
   a {
     display: flex;
+    position: relative;
   }
 
   @include breakpoint-up(tablet) {
@@ -42,4 +43,24 @@
 
 .hide {
   display: none;
+}
+
+.count {
+  position: absolute;
+  background-color: var(--clr--danger--1);
+  font-size: 0.7rem;
+  right: -0.6rem;
+  bottom: -0.5rem;
+  border-radius: 50%;
+  height: 1.3rem;
+  width: 1.3rem;
+  font-weight: 900;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &.hide {
+    display: none;
+  }
 }
