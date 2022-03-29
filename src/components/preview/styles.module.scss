@@ -28,7 +28,7 @@
   bottom: 0;
   right: 0;
   overflow-y: scroll;
-  z-index: 2;
+  z-index: var(--zindex--markdown);
 }
 
 .header {
