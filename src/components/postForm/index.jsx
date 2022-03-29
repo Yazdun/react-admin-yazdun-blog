@@ -12,7 +12,7 @@ import {
   isError,
 } from '../../utils'
 import { BiRocket, BiCloud } from 'react-icons/bi'
-import { Preview } from '..'
+import { Preview, Modal } from '..'
 import { useEffect, useState } from 'react'
 import { CREATE_POST, PATCH_POST } from '../../services'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
@@ -34,6 +34,8 @@ export const PostForm = ({ updateMode, formData, postId }) => {
     if (formData) {
       isDraft && !formData.isDraft && increaseDrafts()
       !isDraft && formData.isDraft && decreaseDrafts()
+    } else {
+      isDraft && increaseDrafts()
     }
 
     setShowAlert(true)
@@ -136,6 +138,7 @@ export const PostForm = ({ updateMode, formData, postId }) => {
             <BiCloud />
             draft
           </Button>
+          {updateMode && <Modal id={postId} isDraft={formData?.isDraft} />}
         </div>
       </form>
     </FormProvider>

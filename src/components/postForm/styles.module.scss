@@ -6,6 +6,7 @@ h1 {
 
 .buttons {
   display: flex;
+  flex-wrap: wrap;
 
   button {
     margin-right: 1rem;
