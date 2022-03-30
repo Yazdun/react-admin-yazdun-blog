@@ -36,7 +36,6 @@ export const HttpErrors = ({ children }) => {
           <Http
             title="404 ! Not found"
             info="this content either doesn't exist or has been deleted"
-            action
           />
         )
 
