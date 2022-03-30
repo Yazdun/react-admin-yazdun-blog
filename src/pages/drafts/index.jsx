@@ -18,6 +18,14 @@ export const Drafts = () => {
     return <Loading center />
   }
 
+  if (posts.length < 1) {
+    return (
+      <Container>
+        <h1>There are no drafted posts</h1>
+      </Container>
+    )
+  }
+
   return (
     <Container>
       {posts.map(post => {

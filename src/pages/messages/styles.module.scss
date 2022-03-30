@@ -1,0 +1,11 @@
+@import '../../scss/mixins';
+.container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-row-gap: 2rem;
+  @include breakpoint-up(tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+  }
+}

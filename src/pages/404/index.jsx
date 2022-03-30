@@ -1,7 +1,9 @@
-import cn from 'classnames'
 import { Container } from '../../elements'
-import s from './styles.module.scss'
 
 export const Page404 = () => {
-  return <Container>Page404</Container>
+  return (
+    <Container>
+      <h1 style={{ textAlign: 'center' }}>404 not found</h1>
+    </Container>
+  )
 }

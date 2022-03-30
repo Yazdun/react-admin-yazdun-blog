@@ -1,0 +1,38 @@
+.card {
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  border-radius: var(--border--radius--1);
+  position: relative;
+}
+
+.item {
+  display: flex;
+  align-items: flex-end;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: var(--clr--active--1);
+
+  svg {
+    font-size: 1.2rem;
+    margin-right: 0.4rem;
+  }
+}
+
+.content {
+  margin-top: 2rem;
+}
+
+.patch {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  font-size: 2rem;
+}
+
+.new {
+  color: var(--clr--danger--1);
+}
+
+.read {
+  color: var(--clr--active--1);
+}
