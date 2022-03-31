@@ -1,3 +1,40 @@
 .container {
   margin: 2rem 0;
+  color: var(--foreground--2);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  strong {
+    color: var(--foreground--1);
+    margin: 2rem 0;
+  }
+
+  p {
+    margin: 2rem 0;
+  }
+
+  a {
+    color: var(--clr--active--1);
+    font-weight: 600;
+  }
+
+  ol {
+    list-style-type: none;
+    margin: 2rem 0;
+  }
+
+  ol li {
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    border-radius: var(--border--radius--1);
+    margin: 2rem 0;
+  }
 }
