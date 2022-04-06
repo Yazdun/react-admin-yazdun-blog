@@ -56,6 +56,7 @@ export const PostForm = ({ updateMode, formData, postId }) => {
         codepen,
         youtube,
         content,
+        github,
       } = fields
 
       setMarkdown(content)
@@ -69,6 +70,7 @@ export const PostForm = ({ updateMode, formData, postId }) => {
         { name: 'codesandbox', value: codesandbox },
         { name: 'codepen', value: codepen },
         { name: 'youtube', value: youtube },
+        { name: 'github', value: github },
         { name: 'content', value: content },
       ]
 
@@ -92,6 +94,7 @@ export const PostForm = ({ updateMode, formData, postId }) => {
           <Input {...UrlInput('codesandbox')} />
           <Input {...UrlInput('codepen')} />
           <Input {...UrlInput('youtube')} />
+          <Input {...UrlInput('github')} />
 
           <div className={s.textarea}>
             <Textarea
